@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="mysqlImpl" class="com.yu.demo2.MysqlImpl"/>
+    <bean id="oracleImpl" class="com.yu.demo2.MyOracleImpl"/>
+    <bean id="MyBodyImpl" class="com.yu.demo2.MyBodyImpl">
+        <property name="p" value="yxx"/>
+    </bean>
+    <bean id="cat" class="tttttest.Cat"/>
+    <bean id="dog" class="tttttest.Dog"/>
+    <bean id="heart" class="tttttest.heart">
+        <property name="h" ref="cat"/>
+    </bean>
+</beans>

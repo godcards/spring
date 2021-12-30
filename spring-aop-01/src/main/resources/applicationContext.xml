@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="userService" class="com.yu.demo1.UserServiceImpl"/>
+    <bean id="log" class="com.yu.demo2.Log"/>
+    <bean id="afterLog" class="com.yu.demo2.AfterLog"/>
+<!--    <bean id="auto" class="com.yu.zhujei.autoshixain"/>-->
+<!--    <aop:aspectj-autoproxy/>-->
+
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;添加切入点expression:表达式execution(要执行的位置)&ndash;&gt;-->
+<!--        <aop:pointcut id="pointcut" expression="execution(* com.yu.demo1.UserServiceImpl.*(..))"/>-->
+<!--        &lt;!&ndash;执行环绕&ndash;&gt;-->
+<!--        &lt;!&ndash;把log切入到pointcut里的execution方法里的位置&ndash;&gt;-->
+<!--        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>-->
+<!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>-->
+<!--    </aop:config>-->
+    <bean id="diy" class="com.yu.zidinyi.diy"/>
+    <aop:config>
+        <!--定义切面-->
+        <aop:aspect ref="diy">
+            <!--切入点-->
+            <aop:pointcut id="pointcut" expression="execution(* com.yu.demo1.UserServiceImpl.*(..))"/>
+            <!--通知-->
+            <aop:after method="after" pointcut-ref="pointcut"/>
+            <aop:before method="before" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
