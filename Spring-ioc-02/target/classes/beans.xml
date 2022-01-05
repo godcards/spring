@@ -5,7 +5,7 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--bean就是java对象 , 由Spring创建和管理-->
-    <bean id="hello" class="com.yu.Hello">
+    <bean id="hello" class="com.yu.demo2.Hello">
         <property name="name" value="Spring"/>
     </bean>
 </beans>
