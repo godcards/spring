@@ -6,4 +6,7 @@
     <select id="getUser" resultType="user">
         select * from mybatis.people
     </select>
+    <insert id="insUser" parameterType="user">
+        insert into mybatis.people(id,name,age,pwd)values (#{id},#{name},#{age},#{pwd})
+    </insert>
 </mapper>

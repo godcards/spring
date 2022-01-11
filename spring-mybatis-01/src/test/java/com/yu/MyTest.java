@@ -2,22 +2,20 @@ package com.yu;
 
 import com.yu.UserTools.UserTools;
 import com.yu.dao.UserMapper;
-import com.yu.pojo.user;
+import com.yu.dao.UserMapperImpl;
+import com.yu.pojo.User;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
 public class MyTest {
     @Test
     public void getUser(){
-        SqlSession sqlSession = UserTools.getSqlSession();
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        List<user> user = mapper.getUser();
-        for (com.yu.pojo.user user1 : user) {
-            System.out.println(user1);
-        }
-        sqlSession.close();
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        UserMapperImpl getUser = context.getBean("getUser", UserMapperImpl.class);
+        getUser.getUser();
     }
 }

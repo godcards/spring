@@ -1,9 +1,11 @@
 package com.yu.dao;
 
-import com.yu.pojo.user;
+import com.yu.pojo.User;
 
 import java.util.List;
 
 public interface UserMapper {
-    List<user> getUser();
+    List<User> getUser();
+
+
 }

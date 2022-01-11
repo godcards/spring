@@ -16,5 +16,8 @@
         <module name="spring-proxy-02" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-mystudy-01" target="16" />
+    </bytecodeTargetLevel>
   </component>
 </project>
